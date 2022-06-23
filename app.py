@@ -1,3 +1,4 @@
+from http import server
 import dash
 from dash import dcc
 # from dash import dcc
@@ -12,7 +13,7 @@ username = urllib.parse.quote_plus('kris')
 password = urllib.parse.quote_plus('@Krishna8')
 
 app = dash.Dash(__name__)
-application = app.server
+server = app.server
 client = MongoClient(
     'mongodb+srv://%s:%s@cluster0.0vg1ud3.mongodb.net/' % (username, password))
 db = client.fyproj
@@ -107,4 +108,4 @@ def update_graph_2(selector):
 
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    server.run(debug=True)
